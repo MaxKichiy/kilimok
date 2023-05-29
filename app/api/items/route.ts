@@ -1,7 +1,7 @@
 import Item from "@models/file";
 import { connectToDB } from "@utils/database";
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const { skip } = await req.json();
     console.log("🚀 ~ file: route.ts:6 ~ POST ~ skip:", skip);
 
