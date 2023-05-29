@@ -3,14 +3,9 @@ import { connectToDB } from "@utils/database";
 
 export const POST = async (req: any) => {
     const { skip } = await req.json();
-    console.log("🚀 ~ file: route.ts:6 ~ POST ~ skip:", skip);
 
     try {
         await connectToDB();
-        // const skip =
-        //     req.query.skip && /^\d+$/.test(req.query.skip)
-        //         ? Number(req.query.skip)
-        //         : 0;
         const items = await Item.find({}, undefined, {
             skip: skip,
             limit: 2,

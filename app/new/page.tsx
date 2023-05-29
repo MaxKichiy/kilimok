@@ -6,11 +6,9 @@ import React, { FormEvent, useState } from "react";
 
 const page = () => {
     const [name, setName] = useState("");
-    console.log("🚀 ~ file: page.tsx:9 ~ page ~ name:", name);
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [image, setImage] = useState<File | String>("");
-    console.log("🚀 ~ file: page.tsx:13 ~ page ~ image:", image);
     const CLOUD_NAME = "diapevcxl";
     const MY_UPLOAD_PRESET = "kovriki";
 
@@ -33,10 +31,6 @@ const page = () => {
             const data = await res.json();
 
             const imageUrl = data["secure_url"];
-            console.log(
-                "🚀 ~ file: page.tsx:24 ~ uploadImage ~ imageUrl:",
-                imageUrl
-            );
             return imageUrl;
         } catch (error) {
             console.log("🚀 ~ file: page.tsx:19 ~ uploadImage ~ error:", error);
@@ -46,17 +40,12 @@ const page = () => {
         if (!name) {
             throw new Error("empty name field");
         }
-        console.log("🚀 ~ file: page.tsx:8 ~ handleSubmit ~ event:", event);
         event.preventDefault();
         const newFormData = new FormData(event.target as HTMLFormElement);
         const image = newFormData.get("image");
 
         try {
             const imageUrl = await uploadImage(image);
-            console.log(
-                "🚀 ~ file: page.tsx:44 ~ handleSubmit ~ imageUrl:",
-                imageUrl
-            );
             const response = await fetch("/api/files", {
                 method: "POST",
                 body: JSON.stringify({
@@ -68,16 +57,12 @@ const page = () => {
             });
 
             const data = response.json();
-            console.log("🚀 ~ file: page.tsx:49 ~ handleSubmit ~ data:", data);
         } catch (error) {
             console.log(
                 "🚀 ~ file: page.tsx:45 ~ handleSubmit ~ error:",
                 error
             );
         }
-        console.log("🚀 ~ file: page.tsx:12 ~ handleSubmit ~ newFormData:", [
-            ...(newFormData as any),
-        ]);
     };
     return (
         <div className="flex">
@@ -94,11 +79,6 @@ const page = () => {
                 <FormFileInput
                     value={image as any}
                     onChange={(event) => {
-                        console.log(
-                            "🚀 ~ file: page.tsx:111 ~ page ~ event:",
-                            event
-                        );
-
                         if (event?.target?.files?.[0]) {
                             // convertToBase64(event.target)?.then(setFile);
                             setImage(

@@ -8,10 +8,8 @@ const Home = () => {
                 КилимОК
                 <br className="max-md:hid den" />
             </h1>
-            <h2>
-                <span className="desc text-center">
-                    Придверні килимки з унікальними принтами
-                </span>
+            <h2 className="desc text-center mx-auto">
+                Придверні килимки з унікальними принтами
             </h2>
 
             <div className="flex flex-col gap-2">

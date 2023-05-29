@@ -6,7 +6,6 @@ export const connectToDB = async () => {
     mongoose.set("strictQuery", true);
 
     if (isConnected) {
-        console.log("Hey is connected");
         return;
     }
 
@@ -15,7 +14,6 @@ export const connectToDB = async () => {
             dbName: "Kovriki",
         });
         isConnected = true;
-        console.log("MongoDB connected");
     } catch (error) {
         console.log("🚀 ~ file: database.js:22 ~ connectToDB ~ error:", error);
     }

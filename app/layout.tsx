@@ -1,5 +1,6 @@
 import Nav from "@components/Nav";
 import "@styles/global.css";
+import { GlobalContextProvider } from "./Context/store";
 
 export const metadata = {
     title: "КилимОК",
@@ -9,13 +10,17 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="ru">
             <body>
-                <div className="main">
-                    <div className="gradient" />
-                </div>
-                <main className="app">
-                    <Nav />
-                    {children}
-                </main>
+                <GlobalContextProvider>
+                    <div className="main">
+                        <div className="gradient" />
+                    </div>
+                    <main className="app">
+                        <Nav />
+                        {children}
+                    </main>
+
+                    <div id="modal-root"></div>
+                </GlobalContextProvider>
             </body>
         </html>
     );
