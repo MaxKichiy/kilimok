@@ -1,10 +1,8 @@
 "use client";
 import Image from "next/image";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
-import ConfirmOrder from "./Modal";
+import React, { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "@app/Context/store";
-import Modal from "./Modal";
+
 import OrderModal from "./OrderModal";
 
 const Items = () => {
