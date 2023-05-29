@@ -9,7 +9,7 @@ const Items = () => {
     const [isNoMore, setIsNoMore] = useState(false);
     console.log("🚀 ~ file: Items.tsx:7 ~ Items ~ skip:", skip);
     console.log("🚀 ~ file: Items.tsx:7 ~ Items ~ items:", items);
-    const fetchItems = async (skip) => {
+    const fetchItems = async (skip: any) => {
         console.log("🚀 ~ file: Items.tsx:15 ~ fetchItems ~ skip:", skip);
 
         const response = await fetch(`/api/items`, {
@@ -29,11 +29,11 @@ const Items = () => {
     //     fetchFirstTime();
     // }, []);
 
-    const fetchData = async (skip) => {
+    const fetchData = async (skip: any) => {
         console.log("🚀 ~ file: Items.tsx:37 ~ fetchData ~ fetchData:");
         const data = await fetchItems(skip);
         console.log("🚀 ~ file: Items.tsx:27 ~ fetchData ~ data:", data);
-        setItems((prev) => [...prev, ...data]);
+        setItems((prev) => [...prev, ...data] as any);
 
         setSkip((prev) => prev + data.length);
     };
@@ -77,7 +77,7 @@ const Items = () => {
 
     return (
         <div className="flex flex-col gap-2">
-            {items.map((element) => {
+            {items.map((element: any) => {
                 return (
                     <div key={element._id} className="prompt_card">
                         <div>

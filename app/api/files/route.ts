@@ -1,7 +1,7 @@
 import Item from "@models/file";
 import { connectToDB } from "@utils/database";
 
-export const POST = async (req) => {
+export const POST = async (req: any) => {
     const data = await req.json();
     console.log("Hello --------------");
     try {
