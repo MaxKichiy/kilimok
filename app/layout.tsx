@@ -14,9 +14,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
                     <div className="main">
                         <div className="gradient" />
                     </div>
-                    <main className="app">
+                    <main className="app relative">
                         <Nav />
-                        {children}
+                        <div className="mt-20">{children}</div>
                     </main>
 
                     <div id="modal-root"></div>

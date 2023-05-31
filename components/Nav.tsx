@@ -9,7 +9,7 @@ const Nav = ({ openCart }: any) => {
     const { data, setData } = useGlobalContext();
     const [showCart, setShowCart] = useState(false);
     return (
-        <nav className="flex-between w-full py-3 border-b-2 px-5">
+        <nav className="flex-between fixed top-0 w-full py-3 border-b-2 z-[100] glassmorphism px-5">
             <Link href="/" className="flex gap-2 flex-center">
                 <Image
                     src="/assets/images/logo.svg"

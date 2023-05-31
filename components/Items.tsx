@@ -11,6 +11,8 @@ const Items = () => {
     const [currentOrder, setCurrentOrder] = useState(null);
     const { handleAddToCart } = useGlobalContext();
 
+    const randomPercentage = Math.floor(Math.random() * 21);
+
     const [showModal, setShowModal] = useState(false);
 
     const fetchItems = async (skip: any) => {
@@ -66,6 +68,23 @@ const Items = () => {
                             />
                         </div>
                         <h3 className="text-center p-2">{element.name}</h3>
+
+                        <div className="flex flex-col flex-center">
+                            <div className="line-through">
+                                Стара ціна:{" "}
+                                {Number(element.price) +
+                                    Math.round(
+                                        (element.price * randomPercentage) / 100
+                                    )}
+                            </div>
+                            <div>
+                                Ціна зараз:{" "}
+                                <span className="font-bold">
+                                    {element.price}
+                                </span>
+                            </div>
+                        </div>
+
                         <div className="flex px-5 flex-col gap-2 mt-4">
                             <button
                                 className="outline_btn"
